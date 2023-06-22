@@ -1,0 +1,23 @@
+{
+  "header": {
+    "cancel": "Cancel",
+    "all": "ALL"
+  },
+  "products": [
+    { "id": 0, "title": "Augusta Abbott", "subTitle": "@augustaabbott" },
+    { "id": 1, "title": "Augusta Abbott", "subTitle": "@augustaabbott" },
+    { "id": 2, "title": "Augusta Abbott", "subTitle": "@augustaabbott" },
+    { "id": 3, "title": "Augusta Abbott", "subTitle": "@augustaabbott" },
+    { "id": 5, "title": "Augusta Abbott", "subTitle": "@augustaabbott" },
+    { "id": 6, "title": "Augusta Abbott", "subTitle": "@augustaabbott" },
+    { "id": 7, "title": "Augusta Abbott", "subTitle": "@augustaabbott" },
+    { "id": 8, "title": "Augusta Abbott", "subTitle": "@augustaabbott" },
+    { "id": 9, "title": "Augusta Abbott", "subTitle": "@augustaabbott" },
+    { "id": 10, "title": "Augusta Abbott", "subTitle": "@augustaabbott" },
+    { "id": 11, "title": "Augusta Abbott", "subTitle": "@augustaabbott" },
+    { "id": 13, "title": "Augusta Abbott", "subTitle": "@augustaabbott" },
+    { "id": 14, "title": "Augusta Abbott", "subTitle": "@augustaabbott" },
+    { "id": 15, "title": "Augusta Abbott", "subTitle": "@augustaabbott" },
+    { "id": 16, "title": "Augusta Abbott", "subTitle": "@augustaabbott" }
+  ]
+}
