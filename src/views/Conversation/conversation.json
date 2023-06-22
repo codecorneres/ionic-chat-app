@@ -1,0 +1,62 @@
+{
+  "header": {
+    "title": "Conversations",
+    "logout": "Logout"
+  },
+  "conversations": [
+    {
+      "id": 0,
+      "title": "Lora Townsend",
+      "subTitle": "Email Subject",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut aspernatur dolore quibusdam necessitatibus dolor!"
+    },
+    {
+      "id": 1,
+      "title": "Lora Townsend",
+      "subTitle": "Email Subject",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut aspernatur dolore quibusdam necessitatibus dolor!"
+    },
+    {
+      "id": 2,
+      "title": "Lora Townsend",
+      "subTitle": "Email Subject",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut aspernatur dolore quibusdam necessitatibus dolor!"
+    },
+    {
+      "id": 3,
+      "title": "Lora Townsend",
+      "subTitle": "Email Subject",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut aspernatur dolore quibusdam necessitatibus dolor!"
+    },
+    {
+      "id": 4,
+      "title": "Lora Townsend",
+      "subTitle": "Email Subject",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut aspernatur dolore quibusdam necessitatibus dolor!"
+    },
+    {
+      "id": 5,
+      "title": "Lora Townsend",
+      "subTitle": "Email Subject",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut aspernatur dolore quibusdam necessitatibus dolor!"
+    },
+    {
+      "id": 6,
+      "title": "Lora Townsend",
+      "subTitle": "Email Subject",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut aspernatur dolore quibusdam necessitatibus dolor!"
+    },
+    {
+      "id": 7,
+      "title": "Lora Townsend",
+      "subTitle": "Email Subject",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut aspernatur dolore quibusdam necessitatibus dolor!"
+    },
+    {
+      "id": 8,
+      "title": "Lora Townsend",
+      "subTitle": "Email Subject",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut aspernatur dolore quibusdam necessitatibus dolor!"
+    }
+  ]
+}
