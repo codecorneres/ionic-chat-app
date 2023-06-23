@@ -1,39 +1,45 @@
-import { createRouter, createWebHistory } from "@ionic/vue-router";
-import { RouteRecordRaw } from "vue-router";
-import HomePage from "../views/HomePage.vue";
-import Conversation from "../views/conversation/Conversation.vue";
-import UserLogin from "../views/User/UserLogin.vue";
-import ConversationPopup from "../components/ConversationPopup.vue";
-import Products from "../views/Products/Products.vue";
+import { createRouter, createWebHistory } from '@ionic/vue-router';
+import { RouteRecordRaw } from 'vue-router';
+import HomePage from '../views/HomePage.vue';
+import Conversation from '../views/conversation/Conversation.vue';
+import UserLogin from '../views/User/UserLogin.vue';
+import ConversationPopup from '../components/ConversationPopup.vue';
+import Products from '../views/Products/Products.vue';
+import SingleChatConversation from '../views/SingleChatConversation/SingleChatConversation.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: "/",
-    redirect: "/home",
+    path: '/',
+    redirect: '/home',
   },
   {
-    path: "/home",
-    name: "Home",
+    path: '/home',
+    name: 'Home',
     component: HomePage,
   },
   {
-    path: "/conversation",
-    name: "conversation",
+    path: '/conversations',
+    name: 'conversations',
     component: Conversation,
   },
   {
-    path: "/products",
-    name: "products",
+    path: '/conversations/conversation',
+    name: 'conversation',
+    component: SingleChatConversation,
+  },
+  {
+    path: '/products',
+    name: 'products',
     component: Products,
   },
   {
-    path: "/login",
-    name: "login",
+    path: '/login',
+    name: 'login',
     component: UserLogin,
   },
   {
-    path: "/conversationPopup",
-    name: "popup",
+    path: '/conversationPopup',
+    name: 'popup',
     component: ConversationPopup,
   },
 ];
