@@ -94,9 +94,6 @@ export default defineComponent({
 .logout {
   color: blue;
 }
-.conversation-body {
-  overflow: scroll;
-}
 .conversation-card {
   display: flex;
   padding: 15px 5px;
@@ -115,15 +112,17 @@ export default defineComponent({
   color: black;
   margin: 0;
   font-weight: bold;
+  font-size: 15px;
 }
 .conversation-card .sub-title {
   color: black;
   font-weight: 500;
+  font-size: 14px;
 }
 .conversation-card .description {
   color: darkgray;
   margin: 7px 0 0;
-  font-size: 14px;
+  font-size: 13px;
 }
 .ion-fab-button {
   min-width: 40px;
