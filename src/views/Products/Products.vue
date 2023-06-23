@@ -8,10 +8,11 @@
       class="products-search-bar"
       mode="ios"
       placeholder="Search"
+      @ionInput="handleChange"
     ></ion-searchbar>
     <div class="cancel">{{ header.cancel }}</div>
   </ion-list-header>
-  <ion-content :scrollEvents="false">
+  <ion-content class="products-ion-content" :scrollEvents="false">
     <div class="products-container">
       <div class="products-all-heading">{{ header.all }}</div>
       <div class="products-body">
@@ -28,6 +29,9 @@
               <div class="products-sub-title">{{ item.subTitle }}</div>
             </div>
           </div>
+        </div>
+        <div class="products-no-result" v-if="products.length === 0">
+          No result found
         </div>
       </div>
     </div>
@@ -46,6 +50,18 @@ export default defineComponent({
     IonListHeader,
     IonIcon,
     IonSearchbar,
+  },
+
+  methods: {
+    handleChange(event: any) {
+      const searchText = event.target.value;
+      let filterProduct = data.products.filter((product) =>
+        product.title
+          .toLocaleLowerCase()
+          .includes(searchText.toLocaleLowerCase())
+      );
+      this.products = filterProduct;
+    },
   },
 
   setup() {
@@ -67,6 +83,14 @@ export default defineComponent({
 <style scoped>
 .products-container {
   background-color: white;
+}
+.products-ion-content {
+  --background: white;
+}
+.products-no-result {
+  color: black;
+  text-align: center;
+  margin-top: 20px;
 }
 .product-header-back-ion-icon {
   font-size: 22px;
