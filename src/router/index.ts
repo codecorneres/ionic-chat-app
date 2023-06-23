@@ -4,6 +4,7 @@ import HomePage from "../views/HomePage.vue";
 import Conversation from "../views/conversation/Conversation.vue";
 import UserLogin from "../views/User/UserLogin.vue";
 import ConversationPopup from "../components/ConversationPopup.vue";
+import Products from "../views/Products/Products.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -19,6 +20,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/conversation",
     name: "conversation",
     component: Conversation,
+  },
+  {
+    path: "/products",
+    name: "products",
+    component: Products,
   },
   {
     path: "/login",
