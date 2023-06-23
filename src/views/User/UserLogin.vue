@@ -21,7 +21,7 @@
         </p>
       </div>
 
-      <form @submit.prevent="submitForm">
+      <form @submit.prevent="submitForm" class="form-register">
         <ion-item class="ion-item" lines="none">
           <!-- <ion-label>Email</ion-label> -->
           <ion-input
@@ -172,10 +172,6 @@ ion-content {
   --background: #eff1f8;
 }
 
-ion-button {
-  --border-radius: 25px;
-}
-
 ion-toolbar {
   --background: #687089;
   --color: white;
@@ -212,6 +208,9 @@ ion-toolbar {
   /* padding: 10px auto; */
   margin-top: 31px;
   height: 47px;
+}
+.form-register ion-button {
+  --border-radius: 25px;
 }
 
 .button-span {
