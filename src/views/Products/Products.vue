@@ -8,7 +8,6 @@
       class="products-search-bar"
       mode="ios"
       placeholder="Search"
-      @ionChange="handleSearch"
     ></ion-searchbar>
     <div class="cancel">{{ header.cancel }}</div>
   </ion-list-header>
@@ -48,6 +47,7 @@ export default defineComponent({
     IonIcon,
     IonSearchbar,
   },
+
   setup() {
     return {
       add,
@@ -72,6 +72,22 @@ export default defineComponent({
   font-size: 22px;
   font-weight: bold;
 }
+
+:deep(.products-search-bar .searchbar-input) {
+  border-radius: 5px;
+  background-color: #959aad;
+}
+:deep(.products-search-bar .searchbar-input-container) {
+  height: 32px;
+}
+:deep(.products-search-bar .searchbar-search-icon) {
+  color: white;
+  width: 16px;
+}
+:deep(.products-search-bar .searchbar-clear-icon) {
+  color: white;
+  width: 16px;
+}
 .products-header {
   --background: #687089;
   --color: white;
@@ -82,11 +98,8 @@ export default defineComponent({
   color: white;
 }
 .products-search-bar {
-  min-width: 200px;
-  max-width: 200px;
-}
-.products-header .list-header-inner {
-  justify-content: space-between;
+  width: 70%;
+  margin: 0 auto;
 }
 .products-all-heading {
   background-color: #eff1f8;
@@ -112,7 +125,7 @@ export default defineComponent({
   width: 32px;
 }
 .products-icon-ion {
-  color: gray;
+  color: #687089;
   min-width: 32px;
   max-width: 32px;
   height: 32px;
