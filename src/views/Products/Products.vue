@@ -39,7 +39,13 @@
 </template>
 
 <script lang="ts">
-import { IonLabel, IonListHeader, IonIcon, IonSearchbar } from '@ionic/vue';
+import {
+  IonLabel,
+  IonListHeader,
+  IonIcon,
+  IonSearchbar,
+  IonContent,
+} from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { add, peopleCircleOutline, chevronBackOutline } from 'ionicons/icons';
 import data from '../Products/products.json';
@@ -50,6 +56,7 @@ export default defineComponent({
     IonListHeader,
     IonIcon,
     IonSearchbar,
+    IonContent,
   },
 
   methods: {
