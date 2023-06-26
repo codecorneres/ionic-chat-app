@@ -23,7 +23,6 @@
       vertical="bottom"
       horizontal="end"
       slot="fixed"
-      onclick=""
     >
       <ion-fab-button @click="handleAddButtonClick" class="ion-fab-button">
         <ion-icon class="ion-icon-bold" :icon="add"></ion-icon>
