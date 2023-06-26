@@ -1,83 +1,78 @@
 <template>
-  <ion-page>
-    <ion-header>
-      <ion-toolbar>
-        <ion-title class="register-h2">Label</ion-title>
-      </ion-toolbar>
-    </ion-header>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title class="register-h2">Label</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-    <ion-content class="ion-padding">
-      <div class="img-div">
-        <ion-img
-          class="ion-img"
-          src="../img/signup.svg"
-          alt="The Wisconsin State Capitol building in Madison, WI at night"
-        ></ion-img>
-        <p class="title-p">Sign In Heading</p>
-        <p class="heading-para">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea ipsum
-          excepturi harum, odit est numquam? Doloribus, voluptatibus. Doloremque
-          in pariatur
-        </p>
+  <ion-content class="ion-padding">
+    <div class="img-div">
+      <ion-img
+        class="ion-img"
+        src="../img/signup.svg"
+        alt="The Wisconsin State Capitol building in Madison, WI at night"
+      ></ion-img>
+      <p class="title-p">Sign In Heading</p>
+      <p class="heading-para">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea ipsum
+        excepturi harum, odit est numquam? Doloribus, voluptatibus. Doloremque
+        in pariatur
+      </p>
+    </div>
+
+    <form @submit.prevent="submitForm" class="form-register">
+      <ion-item class="ion-item" lines="none">
+        <ion-input
+          name="domain"
+          type="text"
+          placeholder="Domain Name*"
+          v-model="formInfo.domain"
+        ></ion-input>
+      </ion-item>
+
+      <div class="error" v-if="error.eDomain">
+        {{ error.eDomain }}
       </div>
 
-      <form @submit.prevent="submitForm" class="form-register">
-        <ion-item class="ion-item" lines="none">
-          <!-- <ion-label>Email</ion-label> -->
-          <ion-input
-            name="domain"
-            type="text"
-            placeholder="Domain Name*"
-            v-model="formInfo.domain"
-          ></ion-input>
-        </ion-item>
+      <ion-item class="ion-item" lines="none">
+        <ion-input
+          name="email"
+          type="email"
+          placeholder="Email*"
+          v-model="formInfo.email"
+        ></ion-input>
+      </ion-item>
 
-        <div class="error" v-if="error.eDomain">
-          {{ error.eDomain }}
-        </div>
+      <div class="error" v-if="error.eEmail">
+        {{ error.eEmail }}
+      </div>
 
-        <ion-item class="ion-item" lines="none">
-          <ion-input
-            name="email"
-            type="email"
-            placeholder="Email*"
-            v-model="formInfo.email"
-          ></ion-input>
-        </ion-item>
+      <ion-item class="ion-item" lines="none">
+        <ion-input
+          name="password"
+          type="password"
+          value="password"
+          placeholder="Password*"
+          v-model="formInfo.password"
+        ></ion-input>
+      </ion-item>
 
-        <div class="error" v-if="error.eEmail">
-          {{ error.eEmail }}
-        </div>
+      <span class="error error-3" v-if="error.ePassword">{{
+        error.ePassword
+      }}</span>
 
-        <ion-item class="ion-item" lines="none">
-          <!-- <ion-label>Password</ion-label> -->
-          <ion-input
-            name="password"
-            type="password"
-            value="password"
-            placeholder="Password*"
-            v-model="formInfo.password"
-          ></ion-input>
-        </ion-item>
-
-        <span class="error error-3" v-if="error.ePassword">{{
-          error.ePassword
-        }}</span>
-
-        <ion-button
-          class="register-button"
-          expand="block"
-          v-on:click="submitForm"
-          type="button"
-          >S<span class="button-span">ign in</span></ion-button
-        >
-        <p class="register-para">
-          By proceeding you also agree to the Terms of Service and Privacy
-          Policy
-        </p>
-      </form>
-    </ion-content>
-  </ion-page>
+      <ion-button
+        class="register-button"
+        expand="block"
+        v-on:click="submitForm"
+        type="button"
+        >Sign in</ion-button
+      >
+      <p class="register-para">
+        By proceeding you also agree to the Terms of Service and Privacy Policy
+      </p>
+    </form>
+  </ion-content>
 </template>
 
 <script lang="ts">
@@ -90,8 +85,9 @@ import {
   IonContent,
   IonButton,
   IonImg,
-} from "@ionic/vue";
-import { defineComponent } from "vue";
+} from '@ionic/vue';
+import { defineComponent } from 'vue';
+
 export default defineComponent({
   components: {
     IonInput,
@@ -103,17 +99,18 @@ export default defineComponent({
     IonButton,
     IonImg,
   },
+
   data() {
     return {
       formInfo: {
-        email: "",
-        password: "",
-        domain: "",
+        email: '',
+        password: '',
+        domain: '',
       },
       error: {
-        eEmail: "",
-        ePassword: "",
-        eDomain: "",
+        eEmail: '',
+        ePassword: '',
+        eDomain: '',
       },
     };
   },
@@ -123,44 +120,44 @@ export default defineComponent({
 
       let checkValid = true;
 
-      if (domain === "") {
-        this.error.eDomain = "Domain-Name is required";
+      if (domain === '') {
+        this.error.eDomain = 'Domain-Name is required';
         checkValid = false;
       } else {
-        this.error.eDomain = "";
+        this.error.eDomain = '';
       }
 
-      if (email === "") {
-        this.error.eEmail = "Email is required";
+      if (email === '') {
+        this.error.eEmail = 'Email is required';
         checkValid = false;
       } else if (!/^[^@]+@\w+(\.\w+)+\w$/.test(email)) {
-        this.error.eEmail = "Enter Valid Email address";
+        this.error.eEmail = 'Enter Valid Email address';
         checkValid = false;
       } else {
-        this.error.eEmail = "";
+        this.error.eEmail = '';
       }
 
-      if (this.formInfo.password === "") {
-        this.error.ePassword = "Password is required";
+      if (this.formInfo.password === '') {
+        this.error.ePassword = 'Password is required';
         checkValid = false;
       } else if (password.length <= 7) {
         this.error.ePassword = "password atleast be 8 Letter's long";
         checkValid = false;
       } else {
-        this.error.ePassword = "";
+        this.error.ePassword = '';
       }
       return checkValid;
     },
     submitForm() {
       // Perform signup logic here
       if (this.checkValidat()) {
-        console.log("Email:", this.formInfo.email);
-        console.log("Password:", this.formInfo.password);
-        console.log("Domain Name:", this.formInfo.domain);
+        console.log('Email:', this.formInfo.email);
+        console.log('Password:', this.formInfo.password);
+        console.log('Domain Name:', this.formInfo.domain);
 
-        this.formInfo.email = "";
-        this.formInfo.password = "";
-        this.formInfo.domain = "";
+        this.formInfo.email = '';
+        this.formInfo.password = '';
+        this.formInfo.domain = '';
       }
     },
   },
@@ -185,6 +182,8 @@ ion-toolbar {
 
 .error {
   color: red;
+  font-size: 14px;
+  margin-bottom: 4px;
 }
 
 .error-3 {
@@ -192,7 +191,10 @@ ion-toolbar {
 }
 
 .ion-item {
-  padding-bottom: 4px;
+  padding-bottom: 8px;
+}
+.ion-item ion-input {
+  min-height: auto;
 }
 
 .register-h2 {
@@ -202,6 +204,7 @@ ion-toolbar {
 }
 
 .register-button {
+  text-transform: capitalize;
   --background: #687089;
   font-size: 17px;
   font-weight: 500;
@@ -211,10 +214,6 @@ ion-toolbar {
 }
 .form-register ion-button {
   --border-radius: 25px;
-}
-
-.button-span {
-  text-transform: lowercase;
 }
 .register-para {
   text-align: center;
