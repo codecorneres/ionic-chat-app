@@ -87,7 +87,6 @@ import {
   IonImg,
 } from '@ionic/vue';
 import { defineComponent } from 'vue';
-
 export default defineComponent({
   components: {
     IonInput,
@@ -182,8 +181,8 @@ ion-toolbar {
 
 .error {
   color: red;
-  font-size: 14px;
-  margin-bottom: 4px;
+  font-size: 12px;
+  margin-bottom: 5px;
 }
 
 .error-3 {
@@ -191,38 +190,31 @@ ion-toolbar {
 }
 
 .ion-item {
-  padding-bottom: 8px;
-}
-.ion-item ion-input {
-  min-height: auto;
+  padding-bottom: 6px;
+  border-radius: 5px;
 }
 
 .register-h2 {
   text-align: center;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 500;
 }
 
 .register-button {
   text-transform: capitalize;
   --background: #687089;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 500;
-  /* padding: 10px auto; */
   margin-top: 31px;
-  height: 47px;
+  height: 45px;
 }
 .form-register ion-button {
   --border-radius: 25px;
 }
 .register-para {
   text-align: center;
-  justify-content: center;
   color: rgba(104, 112, 137, 0.751);
-  font-size: 15px;
-  max-width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+  font-size: 14px;
   font-weight: 500;
 }
 
@@ -231,24 +223,25 @@ ion-toolbar {
   flex-direction: column;
   align-items: center;
 }
+:deep(.form-register .ion-item .sc-ion-input-md-h) {
+  min-height: 48px;
+}
+:deep(.form-register .ion-item .native-input) {
+  font-size: 14px;
+}
 
 .heading-para {
   text-align: center;
-  justify-content: center;
   color: rgba(104, 112, 137, 0.751);
-  font-size: 18px;
-  max-width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 20px 0 40px 0;
   font-weight: 500;
-  max-width: 90%;
-  margin-bottom: 34px;
-  margin-top: -11px;
+  font-size: 16px;
 }
 
 .title-p {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 500;
   opacity: 0.8;
+  margin: 0;
 }
 </style>

@@ -5,12 +5,13 @@ import Conversation from '../views/conversation/Conversation.vue';
 import UserLogin from '../views/User/UserLogin.vue';
 import ConversationPopup from '../components/ConversationPopup.vue';
 import Products from '../views/Products/Products.vue';
+import SingleChatConversation from '../views/SingleChatConversation/SingleChatConversation.vue';
 import SingleProduct from '../views/SingleProduct/SingleProduct.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/home',
+    redirect: '/login',
   },
   {
     path: '/home',
@@ -18,9 +19,14 @@ const routes: Array<RouteRecordRaw> = [
     component: HomePage,
   },
   {
-    path: '/conversation',
-    name: 'conversation',
+    path: '/conversations',
+    name: 'conversations',
     component: Conversation,
+  },
+  {
+    path: '/conversations/conversation',
+    name: 'conversation',
+    component: SingleChatConversation,
   },
   {
     path: '/products',
