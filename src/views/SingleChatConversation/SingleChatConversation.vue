@@ -23,90 +23,15 @@
       </div>
       <div class="chat-time">5 minutes ago</div>
 
-      <div class="chat-self">
-        <p class="chat-self-name">David</p>
-        <p class="chat-self-chat">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero natus
-          itaque, mollitia culpa dolorum aperiam. Voluptates, doloremque
-          corrupti!
-        </p>
+      <div v-for="item in chats" key="item.id">
+        <div class="chat-self">
+          <p class="chat-self-name">David</p>
+          <p class="chat-self-chat">
+            {{ item.message }}
+          </p>
+        </div>
+        <div class="chat-time">1 minutes ago</div>
       </div>
-      <div class="chat-time">1 minutes ago</div>
-      <div class="chat-user">
-        <p class="user-name">Dora</p>
-        <p class="user-chat">Lorem ipsum dolor sit amet consectetur.</p>
-      </div>
-      <div class="chat-time">5 minutes ago</div>
-
-      <div class="chat-self">
-        <p class="chat-self-name">David</p>
-        <p class="chat-self-chat">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero natus
-          itaque, mollitia culpa dolorum aperiam. Voluptates, doloremque
-          corrupti!
-        </p>
-      </div>
-      <div class="chat-time">1 minutes ago</div>
-      <div class="chat-user">
-        <p class="user-name">Dora</p>
-        <p class="user-chat">Lorem ipsum dolor sit amet consectetur.</p>
-      </div>
-      <div class="chat-time">5 minutes ago</div>
-
-      <div class="chat-self">
-        <p class="chat-self-name">David</p>
-        <p class="chat-self-chat">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero natus
-          itaque, mollitia culpa dolorum aperiam. Voluptates, doloremque
-          corrupti!
-        </p>
-      </div>
-      <div class="chat-time">1 minutes ago</div>
-      <div class="chat-user">
-        <p class="user-name">Dora</p>
-        <p class="user-chat">Lorem ipsum dolor sit amet consectetur.</p>
-      </div>
-      <div class="chat-time">5 minutes ago</div>
-
-      <div class="chat-self">
-        <p class="chat-self-name">David</p>
-        <p class="chat-self-chat">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero natus
-          itaque, mollitia culpa dolorum aperiam. Voluptates, doloremque
-          corrupti!
-        </p>
-      </div>
-      <div class="chat-time">1 minutes ago</div>
-      <div class="chat-user">
-        <p class="user-name">Dora</p>
-        <p class="user-chat">Lorem ipsum dolor sit amet consectetur.</p>
-      </div>
-      <div class="chat-time">5 minutes ago</div>
-
-      <div class="chat-self">
-        <p class="chat-self-name">David</p>
-        <p class="chat-self-chat">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero natus
-          itaque, mollitia culpa dolorum aperiam. Voluptates, doloremque
-          corrupti!
-        </p>
-      </div>
-      <div class="chat-time">1 minutes ago</div>
-      <div class="chat-user">
-        <p class="user-name">Dora</p>
-        <p class="user-chat">Lorem ipsum dolor sit amet consectetur.</p>
-      </div>
-      <div class="chat-time">5 minutes ago</div>
-
-      <div class="chat-self">
-        <p class="chat-self-name">David</p>
-        <p class="chat-self-chat">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero natus
-          itaque, mollitia culpa dolorum aperiam. Voluptates, doloremque
-          corrupti!
-        </p>
-      </div>
-      <div class="chat-time">1 minutes ago</div>
     </div>
   </ion-content>
   <div class="chat-send-container">
@@ -122,12 +47,23 @@
     <div class="nearby-elements">
       <div class="chat-send-input">
         <ion-item class="ion-item" lines="none">
-          <ion-input name="password" placeholder="Write message"></ion-input>
+          <ion-input
+            @IonInput="handleChangeMessage"
+            name="password"
+            placeholder="Write message"
+            v-model="this.message"
+          ></ion-input>
         </ion-item>
       </div>
 
       <div class="chat-send-button">
-        <ion-button class="register-button" type="button"> Send</ion-button>
+        <ion-button
+          @click="handleSendButton"
+          class="register-button"
+          type="button"
+        >
+          Send</ion-button
+        >
       </div>
     </div>
   </div>
@@ -163,6 +99,36 @@ export default defineComponent({
     IonItem,
     IonButton,
   },
+  methods: {
+    handleChangeMessage(e: any) {
+      console.log(e.target.value);
+      this.message = e.target.value;
+    },
+    handleSendButton() {
+      console.log("clicked");
+      if (this.message) {
+        this.chats.push({ message: this.message });
+        this.message = "";
+      }
+    },
+  },
+  data() {
+    return {
+      chats: [
+        {
+          id: 0,
+          message:
+            "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero natus itaque, mollitia culpa dolorum aperiam. Voluptates, doloremque corrupti!",
+        },
+        {
+          id: 1,
+          message:
+            "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero natus itaque, mollitia culpa dolorum aperiam. Voluptates, doloremque corrupti!",
+        },
+      ],
+      message: "",
+    };
+  },
   setup() {
     return {
       chevronBackOutline,
@@ -192,6 +158,7 @@ export default defineComponent({
   padding: 0 15px;
   position: relative;
   box-sizing: border-box;
+  bottom: 137px;
 }
 .chat-img {
   width: 100%;
