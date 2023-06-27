@@ -10,7 +10,7 @@ import SingleChatConversation from '../views/SingleChatConversation/SingleChatCo
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/home',
+    redirect: '/login',
   },
   {
     path: '/home',
