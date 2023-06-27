@@ -47,6 +47,7 @@
 
             <div class="Conversation-outer-button-div">
               <button
+                @click="handlecancelButton"
                 class="Conversation-register-button Conversation-register-button-cancel"
                 expand="block"
                 type="button"
@@ -80,9 +81,15 @@ import {
   IonContent,
   IonButton,
   IonImg,
-} from "@ionic/vue";
-import { defineComponent } from "vue";
+} from '@ionic/vue';
+import { defineComponent } from 'vue';
 export default defineComponent({
+  props: {
+    handleClosePopup: {
+      type: Function,
+      required: true,
+    },
+  },
   components: {
     IonInput,
     IonItem,
@@ -96,14 +103,14 @@ export default defineComponent({
   data() {
     return {
       formInfo: {
-        firstName: "",
-        lastName: "",
-        cellphone: "",
+        firstName: '',
+        lastName: '',
+        cellphone: '',
       },
       error: {
-        fName: "",
-        lName: "",
-        eCellphone: "",
+        fName: '',
+        lName: '',
+        eCellphone: '',
       },
     };
   },
@@ -113,39 +120,46 @@ export default defineComponent({
 
       let checkValid = true;
 
-      if (firstName === "") {
-        this.error.fName = "First-Name is required";
+      if (firstName === '') {
+        this.error.fName = 'First-Name is required';
         checkValid = false;
       } else {
-        this.error.fName = "";
+        this.error.fName = '';
       }
 
-      if (lastName === "") {
-        this.error.lName = "Last-Name is required";
+      if (lastName === '') {
+        this.error.lName = 'Last-Name is required';
         checkValid = false;
       } else {
-        this.error.lName = "";
+        this.error.lName = '';
       }
 
-      if (this.formInfo.cellphone === "") {
-        this.error.eCellphone = "Cellphone is required";
+      if (this.formInfo.cellphone === '') {
+        this.error.eCellphone = 'Cellphone is required';
         checkValid = false;
       } else {
-        this.error.eCellphone = "";
+        this.error.eCellphone = '';
       }
       return checkValid;
     },
     submitForm() {
       // Perform signup logic here
       if (this.checkValidate()) {
-        console.log("First-Name:", this.formInfo.firstName);
-        console.log("Last-Name:", this.formInfo.lastName);
-        console.log("Cellphone:", this.formInfo.cellphone);
+        console.log('First-Name:', this.formInfo.firstName);
+        console.log('Last-Name:', this.formInfo.lastName);
+        console.log('Cellphone:', this.formInfo.cellphone);
 
-        this.formInfo.firstName = "";
-        this.formInfo.lastName = "";
-        this.formInfo.cellphone = "";
+        this.formInfo.firstName = '';
+        this.formInfo.lastName = '';
+        this.formInfo.cellphone = '';
+        this.handleClosePopup();
       }
+    },
+    handlecancelButton() {
+      this.handleClosePopup();
+      this.formInfo.firstName = '';
+      this.formInfo.lastName = '';
+      this.formInfo.cellphone = '';
     },
   },
 });
@@ -159,6 +173,12 @@ ion-toolbar {
 
 .ion-page-main {
   box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1111;
 }
 .Conversation-popup-outer-div {
   width: 100%;
@@ -168,50 +188,57 @@ ion-toolbar {
   justify-content: center;
   background-color: #a5a9b9;
 }
+.Conversation-ion-padding {
+  --keyboard-offset: 0 !important;
+}
 
 .Conversation-popup-div {
-  width: 60%;
+  width: 100%;
   background-color: white;
   border: 1px solid white;
   border-radius: 23px;
+  max-width: 230px;
+  min-width: 230px;
 }
 .Conversation-popup-heading {
   text-align: center;
   font-weight: 700;
   opacity: 0.9;
-  font-size: 17px;
+  font-size: 16px;
+  margin: 0;
+  padding: 10px;
 }
 .Conversation-ion-input {
-  font-weight: 600;
-  opacity: 0.8;
+  font-weight: 500;
   min-height: auto;
 }
 
 :deep(.Conversation-ion-item .native-input) {
   padding: 0 10px;
-  height: 42px;
-  border: 1px solid rgba(104, 112, 137, 0.751);
+  height: 36px;
+  border: 1px solid #e1dfdf;
+  font-size: 14px;
 }
 .Conversation-error {
   color: red;
   padding-left: 17px;
+  font-size: 13px;
 }
 
 .Conversation-ion-item {
-  padding-bottom: 4px;
+  margin-bottom: 6px;
+  --min-height: auto;
 }
 
 .Conversation-register-button {
   background-color: white;
-  font-size: 17px;
-  font-weight: 600;
-  height: 47px;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 0;
 }
 
 .Conversation-register-button-cancel {
-  margin-right: 0;
-  padding-right: 0;
-  color: rgba(104, 112, 137, 0.751);
+  color: darkgray;
 }
 
 .Conversation-register-button-start {
@@ -221,14 +248,12 @@ ion-toolbar {
 .Conversation-outer-button-div {
   display: flex;
   justify-content: space-around;
-  margin-top: 0;
-  padding-top: 0;
-  border-top: 1px solid rgba(104, 112, 137, 0.751);
   margin-top: 6px;
+  border-top: 1px solid #e1dfdf;
 }
 
 .span-class {
-  border: 1px solid rgba(104, 112, 137, 0.751);
+  border: 1px solid #e1dfdf;
 }
 .Conversation-form-register ion-button {
   --border-radius: 25px;

@@ -6,6 +6,7 @@ import UserLogin from '../views/User/UserLogin.vue';
 import ConversationPopup from '../components/ConversationPopup.vue';
 import Products from '../views/Products/Products.vue';
 import SingleChatConversation from '../views/SingleChatConversation/SingleChatConversation.vue';
+import SingleProduct from '../views/SingleProduct/SingleProduct.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -41,6 +42,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/conversationPopup',
     name: 'popup',
     component: ConversationPopup,
+  },
+  {
+    path: '/product',
+    name: 'product',
+    component: SingleProduct,
   },
 ];
 

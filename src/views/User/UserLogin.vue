@@ -1,81 +1,78 @@
 <template>
-  <ion-page>
-    <ion-header>
-      <ion-toolbar>
-        <ion-title class="register-h2">Label</ion-title>
-      </ion-toolbar>
-    </ion-header>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title class="register-h2">Label</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-    <ion-content class="ion-padding">
-      <div class="img-div">
-        <ion-img
-          class="ion-img"
-          src="../img/signup.svg"
-          alt="The Wisconsin State Capitol building in Madison, WI at night"
-        ></ion-img>
-        <p class="title-p">Sign In Heading</p>
-        <p class="heading-para">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea ipsum
-          excepturi harum, odit est numquam? Doloribus, voluptatibus. Doloremque
-          in pariatur
-        </p>
+  <ion-content class="ion-padding">
+    <div class="img-div">
+      <ion-img
+        class="ion-img"
+        src="../img/signup.svg"
+        alt="The Wisconsin State Capitol building in Madison, WI at night"
+      ></ion-img>
+      <p class="title-p">Sign In Heading</p>
+      <p class="heading-para">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea ipsum
+        excepturi harum, odit est numquam? Doloribus, voluptatibus. Doloremque
+        in pariatur
+      </p>
+    </div>
+
+    <form @submit.prevent="submitForm" class="form-register">
+      <ion-item class="ion-item" lines="none">
+        <ion-input
+          name="domain"
+          type="text"
+          placeholder="Domain Name*"
+          v-model="formInfo.domain"
+        ></ion-input>
+      </ion-item>
+
+      <div class="error" v-if="error.eDomain">
+        {{ error.eDomain }}
       </div>
 
-      <form @submit.prevent="submitForm" class="form-register">
-        <ion-item class="ion-item" lines="none">
-          <ion-input
-            name="domain"
-            type="text"
-            placeholder="Domain Name*"
-            v-model="formInfo.domain"
-          ></ion-input>
-        </ion-item>
+      <ion-item class="ion-item" lines="none">
+        <ion-input
+          name="email"
+          type="email"
+          placeholder="Email*"
+          v-model="formInfo.email"
+        ></ion-input>
+      </ion-item>
 
-        <div class="error" v-if="error.eDomain">
-          {{ error.eDomain }}
-        </div>
+      <div class="error" v-if="error.eEmail">
+        {{ error.eEmail }}
+      </div>
 
-        <ion-item class="ion-item" lines="none">
-          <ion-input
-            name="email"
-            type="email"
-            placeholder="Email*"
-            v-model="formInfo.email"
-          ></ion-input>
-        </ion-item>
+      <ion-item class="ion-item" lines="none">
+        <ion-input
+          name="password"
+          type="password"
+          value="password"
+          placeholder="Password*"
+          v-model="formInfo.password"
+        ></ion-input>
+      </ion-item>
 
-        <div class="error" v-if="error.eEmail">
-          {{ error.eEmail }}
-        </div>
+      <span class="error error-3" v-if="error.ePassword">{{
+        error.ePassword
+      }}</span>
 
-        <ion-item class="ion-item" lines="none">
-          <ion-input
-            name="password"
-            type="password"
-            value="password"
-            placeholder="Password*"
-            v-model="formInfo.password"
-          ></ion-input>
-        </ion-item>
-
-        <span class="error error-3" v-if="error.ePassword">{{
-          error.ePassword
-        }}</span>
-
-        <ion-button
-          class="register-button"
-          expand="block"
-          v-on:click="submitForm"
-          type="button"
-          >S<span class="button-span">ign in</span></ion-button
-        >
-        <p class="register-para">
-          By proceeding you also agree to the Terms of Service and Privacy
-          Policy
-        </p>
-      </form>
-    </ion-content>
-  </ion-page>
+      <ion-button
+        class="register-button"
+        expand="block"
+        v-on:click="submitForm"
+        type="button"
+        >Sign in</ion-button
+      >
+      <p class="register-para">
+        By proceeding you also agree to the Terms of Service and Privacy Policy
+      </p>
+    </form>
+  </ion-content>
 </template>
 
 <script lang="ts">
@@ -101,6 +98,7 @@ export default defineComponent({
     IonButton,
     IonImg,
   },
+
   data() {
     return {
       formInfo: {
@@ -203,6 +201,7 @@ ion-toolbar {
 }
 
 .register-button {
+  text-transform: capitalize;
   --background: #687089;
   font-size: 16px;
   font-weight: 500;
@@ -211,10 +210,6 @@ ion-toolbar {
 }
 .form-register ion-button {
   --border-radius: 25px;
-}
-
-.button-span {
-  text-transform: lowercase;
 }
 .register-para {
   text-align: center;

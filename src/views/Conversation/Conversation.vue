@@ -18,18 +18,18 @@
         </div>
       </div>
     </div>
-
     <ion-fab
       class="ion-fab-add"
       vertical="bottom"
       horizontal="end"
       slot="fixed"
     >
-      <ion-fab-button class="ion-fab-button">
+      <ion-fab-button @click="handleAddButtonClick" class="ion-fab-button">
         <ion-icon class="ion-icon-bold" :icon="add"></ion-icon>
       </ion-fab-button>
     </ion-fab>
   </ion-content>
+  <conversation-popup :handleClosePopup="handleClosePopup" v-if="showPopup" />
 </template>
 
 <script lang="ts">
@@ -45,10 +45,12 @@ import {
   IonFab,
   IonFabButton,
   IonIcon,
+  IonModal,
 } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { add } from 'ionicons/icons';
 import data from '../Conversation/conversation.json';
+import ConversationPopup from '@/components/ConversationPopup.vue';
 
 export default defineComponent({
   components: {
@@ -63,6 +65,17 @@ export default defineComponent({
     IonFab,
     IonFabButton,
     IonIcon,
+    IonModal,
+    ConversationPopup,
+  },
+  methods: {
+    handleAddButtonClick() {
+      this.showPopup = true;
+    },
+
+    handleClosePopup() {
+      this.showPopup = false;
+    },
   },
   setup() {
     return {
@@ -73,6 +86,7 @@ export default defineComponent({
     return {
       header: data.header,
       conversations: data.conversations,
+      showPopup: false,
     };
   },
 });
