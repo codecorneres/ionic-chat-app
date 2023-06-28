@@ -32,7 +32,7 @@
               {{ item.message }}
             </p>
           </div>
-          <div class="chat-time">1 minutes ago</div>
+          <div class="chat-time">{{ item.chatTime }}</div>
         </div>
       </div>
     </ion-content>
@@ -94,6 +94,7 @@ import {
 import { defineComponent } from 'vue';
 import { add } from 'ionicons/icons';
 import { chevronBackOutline } from 'ionicons/icons';
+import moment from 'moment';
 
 export default defineComponent({
   components: {
@@ -110,20 +111,28 @@ export default defineComponent({
     IonPage,
   },
   methods: {
+    ionViewDidEnter() {
+      const content = document.querySelector('ion-content');
+      content?.scrollToBottom(0);
+    },
     handleChangeMessage(e: any) {
       this.message = e.target.value;
     },
     handleSendButton() {
       if (this.message) {
-        this.chats.push({ message: this.message });
+        this.chats.push({
+          message: this.message,
+          chatTime: moment(new Date().getTime()).format('HH:mm'),
+        });
         this.message = '';
+        this.ionViewDidEnter();
       }
     },
 
     openFileInput() {
       this.$refs.fileInput.click();
     },
-    handleFileUpload(event) {
+    handleFileUpload(event: any) {
       const file = event.target.files[0];
 
       this.uploadImage = URL.createObjectURL(file);
@@ -134,11 +143,13 @@ export default defineComponent({
       chats: [
         {
           id: 0,
+          chatTime: moment(new Date().getTime()).format('HH:mm'),
           message:
             'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero natus itaque, mollitia culpa dolorum aperiam. Voluptates, doloremque corrupti!',
         },
         {
           id: 1,
+          chatTime: moment(new Date().getTime()).format('HH:mm'),
           message:
             'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero natus itaque, mollitia culpa dolorum aperiam. Voluptates, doloremque corrupti!',
         },
